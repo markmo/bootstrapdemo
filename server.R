@@ -20,7 +20,7 @@ shinyServer(function(input, output) {
       x <- df$median_price
     }
     boot_mean <<- mean(x)
-    boot_se <<- sd(x) / sqrt(sample_size)
+    boot_se <<- sd(x) / sqrt(input$sample_size)
     boot_ci_95 <<- boot_mean + c(-1, 1) * 1.96 * boot_se
     hg_dot(x)
   })
